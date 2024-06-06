@@ -15,6 +15,9 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <i class="fa fa-quora" aria-hidden="true"></i>
+
                 </div>
             </div>
         </div>

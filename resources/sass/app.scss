@@ -4,7 +4,22 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-// @import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons';
 
-@import "mdb-ui-kit/css/mdb.min.css";
+//customizing bs colors
+$primary :  #f96d00;
+$secondary : #222831;
+
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+//adding new colors
+$custom-colors : (
+    'pale-white': #f2f2f2,
+);
+
+$theme-colors : map-merge($custom-colors, $theme-colors);
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';

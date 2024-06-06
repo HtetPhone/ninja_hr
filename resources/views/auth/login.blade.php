@@ -1,11 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.custom_plain')
 
+@section('title', 'Ninja HR | Login')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header my-2 text-center">
+                    <img style="width: 45px" src="{{ asset('images/angry_3991617.png') }}" alt="">
+                    <p>{{ __('Ninja HR | Login') }}</p>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
