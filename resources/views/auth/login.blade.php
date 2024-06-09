@@ -19,7 +19,7 @@
                             <label for="phone_no" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone_no" type="text" class="form-control @error('phone_no') is-invalid @enderror" name="phone_no" value="{{ old('phone_no') }}" required autofocus>
+                                <input id="phone_no" type="text" placeholder="09XXXXXXX" class="form-control @error('phone_no') is-invalid @enderror" name="phone_no" value="{{ old('phone_no') }}" required autofocus>
 
                                 @error('phone_no')
                                     <span class="invalid-feedback" role="alert">
