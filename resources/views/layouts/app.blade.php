@@ -15,6 +15,10 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+
+    @yield('extra_style')
+    
 </head>
 <body>
     <div id="app">
@@ -25,10 +29,29 @@
                     <i class="bi bi-view-list"></i>
                 </button>
 
-                <a class="navbar-brand flex-fill text-center text-uppercase text-primary fw-bold" href="{{ url('/') }}">
-                    <img width="30px" class="bg-light rounded-circle" src="{{ asset('images/angry_3991617.png') }}" alt=""> {{ config('app.name', 'Laravel') }}
-                </a>
+                <div class="text-center flex-fill">
+                    <a class="navbar-brand  text-uppercase text-primary fw-bold" href="{{ url('/') }}">
+                        <img width="30px" class="bg-light rounded-circle" src="{{ asset('images/angry_3991617.png') }}" alt=""> {{ config('app.name', 'Laravel') }}
+                    </a>
+                </div>
+
+                {{-- user icon  --}}
+                <div class="btn-group">
+                    <button class="btn btn-primary btn-sm dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-person-circle"></i> {{ auth()->user()->name }}
+                    </button>
+                    <ul class="dropdown-menu">
+                        <form method="POST" action="{{route('logout')}}">
+                            @csrf
+                            <button type="submit" class="btn btn-sm w-100"> <i class="bi bi-lock-fill"></i> Logout</button>
+                        </form>
+                    </ul>
+                </div>
+                  
+
             </div>
+
+            {{-- Side Bar --}}
             <div class="side-bar w-25 vh-100 position-absolute text-white top-0 p-4 bg-primary z-1">
                   <div class="d-flex justify-content-between">
                     <a class="navbar-brand text-uppercase text-white fw-bold" href="{{ url('/') }}">

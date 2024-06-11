@@ -1,6 +1,6 @@
 import './bootstrap';
-
 import '/node_modules/jquery/dist/jquery.min';
+import 'laravel-datatables-vite';
 
 // import $ from 'jquery';
 // window.$ = window.jQuery = $;
