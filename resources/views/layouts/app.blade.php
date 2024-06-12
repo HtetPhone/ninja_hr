@@ -20,7 +20,7 @@
     @yield('extra_style')
     
 </head>
-<body>
+<body class="position-relative">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-pale-white shadow position-relative">
             <div class="container py-2">
@@ -68,7 +68,10 @@
             @yield('content')
         </main>
 
-        <footer class="bg-pale-white shadow position-absolute bottom-0 w-100 py-3">
+
+ 
+
+        <footer class="bg-pale-white shadow position-absolute bottom-0 left-0 w-100 py-3">
             <div class="d-flex justify-content-evenly w-75 mx-auto">
                 <i class="bi bi-house"></i>
                 <i class="bi bi-house"></i>
@@ -76,9 +79,12 @@
             </div>
         </footer>
 
+        @stack('scripts')
+        
         <script>
             @yield('extra_scripts')
         </script>
+
     </div>
 </body>
 </html>
