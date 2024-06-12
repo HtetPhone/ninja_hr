@@ -20,7 +20,7 @@
     @yield('extra_style')
     
 </head>
-<body class="position-relative">
+<body class="position-relative min-vh-100">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-pale-white shadow position-relative">
             <div class="container py-2">
@@ -53,14 +53,18 @@
 
             {{-- Side Bar --}}
             <div class="side-bar w-25 vh-100 position-absolute text-white top-0 p-4 bg-primary z-1">
-                  <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between">
                     <a class="navbar-brand text-uppercase text-white fw-bold" href="{{ url('/') }}">
                         <img width="30px" class="bg-light rounded-circle" src="{{ asset('images/angry_3991617.png') }}" alt=""> {{ config('app.name', 'Laravel') }}
                     </a>
                     <button id="closeBtn" class="btn btn-sm btn-outline-light">
                         <i class="bi bi-x fs-5"></i>
                     </button>
-                  </div>
+                </div>
+                <div class="p-3">
+                    <a href="{{ route('users.index') }}" class="nav-link fw-bold rounded side-nav-link shadow p-3"> <i class="bi bi-people"></i> Employees </a>
+                    <a href="{{ route('users.index') }}" class="nav-link fw-bold rounded side-nav-link shadow p-3"> <i class="bi bi-people"></i> Employees </a>
+                </div>
             </div>  
         </nav>
 
@@ -70,8 +74,9 @@
 
 
  
+        @stack('scripts')   
 
-        <footer class="bg-pale-white shadow position-absolute bottom-0 left-0 w-100 py-3">
+        <footer class="bg-pale-white shadow position-absolute bottom-0 w-100 py-3">
             <div class="d-flex justify-content-evenly w-75 mx-auto">
                 <i class="bi bi-house"></i>
                 <i class="bi bi-house"></i>
@@ -79,7 +84,6 @@
             </div>
         </footer>
 
-        @stack('scripts')
         
         <script>
             @yield('extra_scripts')
