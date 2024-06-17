@@ -16,10 +16,10 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="phone_no" class="col-md-4 col-form-label text-md-end">{{ __('Phone No.') }}</label>
+                            <label for="phone_no" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone_no" type="phone_no" class="form-control @error('phone_no') is-invalid @enderror" name="phone_no" value="{{ old('phone_no') }}" required autocomplete="phone_no" autofocus>
+                                <input id="phone_no" type="text" placeholder="09XXXXXXX" class="form-control @error('phone_no') is-invalid @enderror" name="phone_no" value="{{ old('phone_no') }}" required autofocus>
 
                                 @error('phone_no')
                                     <span class="invalid-feedback" role="alert">
@@ -74,13 +74,5 @@
         </div>
     </div>
 </div>
-
-{{-- <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <button type="button" class="btn btn-primary" data-mdb-ripple-init>Button</button>
-    </div>
-  </div> --}}
 
 @endsection

@@ -37,7 +37,6 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    //chaing login option from email to phone_no
     public function username()
     {
         return 'phone_no';
