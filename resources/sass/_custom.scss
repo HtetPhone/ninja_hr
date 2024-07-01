@@ -1,16 +1,65 @@
+<<<<<<< HEAD
 /* Side Bar */
 .side-bar {
     transition: 0.5s ease all;
+=======
+$transition : 0.5s ease all;
+$p-color : #f96d00!important;
+$s-color : #f2f2f2!important;
+
+
+* {
+    transition: $transition;
+}
+
+/* Side Bar */
+.side-bar {
+    transition: $transition;
+>>>>>>> beforeJSValidate
     left: -100%;
 }
 
 .side-bar.on {
     left: 0;
+<<<<<<< HEAD
     transition: 0.5s ease all;
+=======
+    transition: $transition;
+>>>>>>> beforeJSValidate
 }
 
 .side-nav-link:hover {
     background-color: white;
     color : black!important;
+<<<<<<< HEAD
     transition: 0.5s ease all;
 }
+=======
+    transition: $transition;
+}
+
+
+/* Employee  */
+.detail-btn:hover {
+    background-color: $p-color;
+    color: $s-color;
+    transition: $transition;
+}   
+
+.new-em:hover {
+    background-color: $s-color;
+    color: $p-color;
+}
+
+.create-btn {
+    background: url('/public/images/angry_3991617.png');
+    background-position: left;
+    background-size: 58px;
+    background-repeat: no-repeat;
+
+    &:hover {
+        background-color: white!important;
+        color: $p-color;
+    }
+}
+>>>>>>> beforeJSValidate

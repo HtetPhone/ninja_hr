@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>
+        @yield('title', 'Ninja HR')
+    </title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -16,8 +18,12 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
+<<<<<<< HEAD
 
     @yield('extra_style')
+=======
+    @yield('links')
+>>>>>>> beforeJSValidate
     
 </head>
 <body class="position-relative min-vh-100">
@@ -25,6 +31,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-pale-white shadow position-relative">
             <div class="container py-2">
                 {{-- toggle button  --}}
+<<<<<<< HEAD
                 <button class="btn btn-sm fs-5 btn-primary text-white ms-2" id="toggleBtn">
                     <i class="bi bi-view-list"></i>
                 </button>
@@ -54,17 +61,38 @@
             {{-- Side Bar --}}
             <div class="side-bar w-25 vh-100 position-absolute text-white top-0 p-4 bg-primary z-1">
                 <div class="d-flex justify-content-between">
+=======
+                <button class="btn btn-sm fs-5 btn-primary text-white" id="toggleBtn">
+                    <i class="bi bi-view-list"></i>
+                </button>
+
+                <a class="navbar-brand text-uppercase text-primary fw-bold" href="{{ url('/') }}">
+                    <img width="30px" class="bg-light rounded-circle" src="{{ asset('images/angry_3991617.png') }}" alt=""> {{ config('app.name', 'Laravel') }}
+                </a>
+            </div>
+
+            {{-- sidebar  --}}
+            <div class="side-bar w-25 vh-100 position-absolute text-white top-0 p-4 bg-primary z-1">
+                  <div class="d-flex justify-content-between">
+>>>>>>> beforeJSValidate
                     <a class="navbar-brand text-uppercase text-white fw-bold" href="{{ url('/') }}">
                         <img width="30px" class="bg-light rounded-circle" src="{{ asset('images/angry_3991617.png') }}" alt=""> {{ config('app.name', 'Laravel') }}
                     </a>
                     <button id="closeBtn" class="btn btn-sm btn-outline-light">
                         <i class="bi bi-x fs-5"></i>
                     </button>
+<<<<<<< HEAD
                 </div>
                 <div class="p-3">
                     <a href="{{ route('users.index') }}" class="nav-link fw-bold rounded side-nav-link shadow p-3"> <i class="bi bi-people"></i> Employees </a>
                     <a href="{{ route('users.index') }}" class="nav-link fw-bold rounded side-nav-link shadow p-3"> <i class="bi bi-people"></i> Employees </a>
                 </div>
+=======
+                  </div>
+                  <div class="p-3">
+                        <a href="{{route('employee.index')}}" class="nav-link fw-bold rounded side-nav-link shadow p-3"> Employees </a>
+                  </div>
+>>>>>>> beforeJSValidate
             </div>  
         </nav>
 
@@ -90,5 +118,7 @@
         </script>
 
     </div>
+
+    @stack('scripts')
 </body>
 </html>
