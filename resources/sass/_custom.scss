@@ -1,10 +1,50 @@
+$transition : 0.5s ease all;
+$p-color : #f96d00!important;
+$s-color : #f2f2f2!important;
+
+
+* {
+    transition: $transition;
+}
+
 /* Side Bar */
 .side-bar {
-    transition: 0.5s ease all;
+    transition: $transition;
     left: -100%;
 }
 
 .side-bar.on {
     left: 0;
-    transition: 0.5s ease all;
+    transition: $transition;
+}
+
+.side-nav-link:hover {
+    background-color: white;
+    color : black!important;
+    transition: $transition;
+}
+
+
+/* Employee  */
+.detail-btn:hover {
+    background-color: $p-color;
+    color: $s-color;
+    transition: $transition;
+}   
+
+.new-em:hover {
+    background-color: $s-color;
+    color: $p-color;
+}
+
+.create-btn {
+    background: url('/public/images/angry_3991617.png');
+    background-position: left;
+    background-size: 58px;
+    background-repeat: no-repeat;
+
+    &:hover {
+        background-color: white!important;
+        color: $p-color;
+    }
 }

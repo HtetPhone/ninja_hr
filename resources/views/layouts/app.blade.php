@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>
+        @yield('title', 'Ninja HR')
+    </title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -15,6 +17,9 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    @yield('links')
+    
 </head>
 <body>
     <div id="app">
@@ -29,6 +34,8 @@
                     <img width="30px" class="bg-light rounded-circle" src="{{ asset('images/angry_3991617.png') }}" alt=""> {{ config('app.name', 'Laravel') }}
                 </a>
             </div>
+
+            {{-- sidebar  --}}
             <div class="side-bar w-25 vh-100 position-absolute text-white top-0 p-4 bg-primary z-1">
                   <div class="d-flex justify-content-between">
                     <a class="navbar-brand text-uppercase text-white fw-bold" href="{{ url('/') }}">
@@ -38,6 +45,9 @@
                         <i class="bi bi-x fs-5"></i>
                     </button>
                   </div>
+                  <div class="p-3">
+                        <a href="{{route('employee.index')}}" class="nav-link fw-bold rounded side-nav-link shadow p-3"> Employees </a>
+                  </div>
             </div>  
         </nav>
 
@@ -45,5 +55,7 @@
             @yield('content')
         </main>
     </div>
+
+    @stack('scripts')
 </body>
 </html>
