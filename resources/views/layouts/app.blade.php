@@ -18,12 +18,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-<<<<<<< HEAD
-
-    @yield('extra_style')
-=======
     @yield('links')
->>>>>>> beforeJSValidate
     
 </head>
 <body class="position-relative min-vh-100">
@@ -31,37 +26,6 @@
         <nav class="navbar navbar-expand-md navbar-light bg-pale-white shadow position-relative">
             <div class="container py-2">
                 {{-- toggle button  --}}
-<<<<<<< HEAD
-                <button class="btn btn-sm fs-5 btn-primary text-white ms-2" id="toggleBtn">
-                    <i class="bi bi-view-list"></i>
-                </button>
-
-                <div class="text-center flex-fill">
-                    <a class="navbar-brand  text-uppercase text-primary fw-bold" href="{{ url('/') }}">
-                        <img width="30px" class="bg-light rounded-circle" src="{{ asset('images/angry_3991617.png') }}" alt=""> {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                {{-- user icon  --}}
-                <div class="btn-group">
-                    <button class="btn btn-primary btn-sm dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="bi bi-person-circle"></i> {{ auth()->user()->name }}
-                    </button>
-                    <ul class="dropdown-menu">
-                        <form method="POST" action="{{route('logout')}}">
-                            @csrf
-                            <button type="submit" class="btn btn-sm w-100"> <i class="bi bi-lock-fill"></i> Logout</button>
-                        </form>
-                    </ul>
-                </div>
-                  
-
-            </div>
-
-            {{-- Side Bar --}}
-            <div class="side-bar w-25 vh-100 position-absolute text-white top-0 p-4 bg-primary z-1">
-                <div class="d-flex justify-content-between">
-=======
                 <button class="btn btn-sm fs-5 btn-primary text-white" id="toggleBtn">
                     <i class="bi bi-view-list"></i>
                 </button>
@@ -74,51 +38,36 @@
             {{-- sidebar  --}}
             <div class="side-bar w-25 vh-100 position-absolute text-white top-0 p-4 bg-primary z-1">
                   <div class="d-flex justify-content-between">
->>>>>>> beforeJSValidate
                     <a class="navbar-brand text-uppercase text-white fw-bold" href="{{ url('/') }}">
                         <img width="30px" class="bg-light rounded-circle" src="{{ asset('images/angry_3991617.png') }}" alt=""> {{ config('app.name', 'Laravel') }}
                     </a>
                     <button id="closeBtn" class="btn btn-sm btn-outline-light">
                         <i class="bi bi-x fs-5"></i>
                     </button>
-<<<<<<< HEAD
-                </div>
-                <div class="p-3">
-                    <a href="{{ route('users.index') }}" class="nav-link fw-bold rounded side-nav-link shadow p-3"> <i class="bi bi-people"></i> Employees </a>
-                    <a href="{{ route('users.index') }}" class="nav-link fw-bold rounded side-nav-link shadow p-3"> <i class="bi bi-people"></i> Employees </a>
-                </div>
-=======
                   </div>
                   <div class="p-3">
                         <a href="{{route('employee.index')}}" class="nav-link fw-bold rounded side-nav-link shadow p-3"> Employees </a>
                   </div>
->>>>>>> beforeJSValidate
             </div>  
         </nav>
 
         <main class="py-4">
             @yield('content')
         </main>
-
-
- 
-        @stack('scripts')   
-
-        <footer class="bg-pale-white shadow position-absolute bottom-0 w-100 py-3">
-            <div class="d-flex justify-content-evenly w-75 mx-auto">
-                <i class="bi bi-house"></i>
-                <i class="bi bi-house"></i>
-                <i class="bi bi-house"></i>
-            </div>
-        </footer>
-
-        
-        <script>
-            @yield('extra_scripts')
-        </script>
-
     </div>
 
     @stack('scripts')
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if (session('success'))
+            Swal.fire({
+                title: "Success!",
+                text: "{{ session('success') }}",
+                icon: "success"
+            });
+        @endif
+    </script>
 </body>
 </html>

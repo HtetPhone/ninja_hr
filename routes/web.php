@@ -1,13 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-=======
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\HomeController;
->>>>>>> beforeJSValidate
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\EmployeeController;
 
 
 Auth::routes(['register' => 'false']);
@@ -20,14 +15,12 @@ Route::controller(HomeController::class)->group(function() {
 });
 
 
-<<<<<<< HEAD
-Route::get('/users', [UsersController::class, 'index'])->name('users.index');
-=======
 Route::controller(EmployeeController::class)->middleware(['auth'])->group(function() {
     Route::get('/employee', 'index')->name('employee.index');
     Route::get('/employee/search', 'search')->name('employee.search');
     Route::get('/employee/details/{employee:name}', 'details')->name('employee.details');
     Route::get('/employee/create', 'create')->name('employee.create');
     Route::post('/employee/create', 'store');
+    Route::get('/employee/{employee:name}/edit', 'edit')->name('employee.edit');
+    Route::put('/employee/{employee:name}', 'update')->name('employee.update');
 }); 
->>>>>>> beforeJSValidate

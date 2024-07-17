@@ -49,7 +49,18 @@
                             <td> {{ $employee->name }} </td>
                             <td> {{ $employee->phone_no }} </td>
                             <td> {{ $employee->department_id ? $employee->department->title : '-' }} </td>
-                            <td> <a href="{{ route('employee.details', $employee) }}" title="details" class="detail-btn p-1 bg-pale-white rounded-circle"> <i class="bi bi-three-dots"></i> </a> </td>
+                            <td> 
+                                <div class="btn-group">
+                                    <a title="See Details" href="{{ route('employee.details', $employee) }}" title="details" class="btn btn-sm btn-outline-dark"> <i class="bi bi-eye-fill"></i> </a>
+                                    <a title="Edit" href="{{ route('employee.edit', $employee) }}" class="btn btn-sm btn-outline-dark">
+                                        <i class="bi bi-pencil-square"></i>  
+                                    </a>
+                                    <button title="Delete" form="deleteEmp{{ $employee->id }}" type="submit" class="btn btn-sm btn-outline-dark"> <i class="bi bi-trash"></i> </button>
+                                    <form class="hidden" id="deleteEmp{{ $employee->id }}" method="POST" action="">
+                                        @csrf
+                                        @method('delete')
+                                    </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
